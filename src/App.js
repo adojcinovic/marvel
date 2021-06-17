@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './App.scss';
+import { MainPage } from './MainPage/MainPage'
+import { SingleCharacter } from './SingleCharacter/SingleCharacter'
+import { useState, useEffect } from 'react'
 function App() {
+
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    fetch('http://gateway.marvel.com/v1/public/characters?apikey=e47d55b269862549127bf29d0a8bfb29')
+      .then(resposne => resposne.json())
+      .then(data => data.data.results.map((e) => {
+        return e
+      }))
+      .then(data => setData(data))
+  }, [])
+
+  console.log(data);
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainPage data={data} />
+      <SingleCharacter />
     </div>
   );
 }
