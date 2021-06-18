@@ -1,19 +1,19 @@
 import './SmallCard.scss'
 
 
-const SmallCard = ({ data, id }) => {
+const SmallCard = ({ data, id, remove }) => {
 
-
+    console.log(data);
 
     return (
-        data.map((e) => {
-            return (
-                <div className='small-card'>
-                    <img alt='' src={e.thumbnail.path + '.jpg'}></img>
-                    <h4>{e.name}</h4>
-                </div>
-            )
-        })
+        <div className='small-card'>
+            <img alt='' src={data.thumbnail.path + '.jpg'}></img>
+            <h4>{data.name}</h4>
+            <div>
+                <button onClick={() => remove(id)}>X</button>
+            </div>
+        </div>
+
     )
 }
 
