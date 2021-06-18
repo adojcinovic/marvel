@@ -6,6 +6,7 @@ function App() {
 
   const [data, setData] = useState([])
 
+
   useEffect(() => {
     fetch('http://gateway.marvel.com/v1/public/characters?apikey=e47d55b269862549127bf29d0a8bfb29')
       .then(resposne => resposne.json())
@@ -20,7 +21,7 @@ function App() {
 
     <div className="App">
       <MainPage data={data} />
-      <SingleCharacter />
+      <SingleCharacter data={data} />
     </div>
   );
 }

@@ -1,19 +1,19 @@
 import './SmallCard.scss'
 
-const SmallCard = () => {
+
+const SmallCard = ({ data, id }) => {
+
+
+
     return (
-        <div className='added'>
-            <h3>Samo odabrani:</h3>
-            <div className='small-card'>
-
-            </div>
-            <div className='small-card'>
-
-            </div>
-            <div className='small-card'>
-
-            </div>
-        </div>
+        data.map((e) => {
+            return (
+                <div className='small-card'>
+                    <img alt='' src={e.thumbnail.path + '.jpg'}></img>
+                    <h4>{e.name}</h4>
+                </div>
+            )
+        })
     )
 }
 
