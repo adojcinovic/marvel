@@ -47,7 +47,7 @@ const MainPage = () => {
                     })}
                 </div>
                 <div className='added'>
-                    <h3>Samo odabrani:</h3>
+                    <h3>Selected heroes:</h3>
                     {added.map(e => {
                         return <SmallCard data={e} id={e.id} remove={remove} />
                     })}

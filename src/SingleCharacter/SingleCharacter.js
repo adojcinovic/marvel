@@ -15,12 +15,14 @@ const SingleCharacter = (props) => {
             .then(data => setCharacter(data.data.results[0]))
     }, [])
 
-    console.log(id);
+    console.log(character);
 
 
     return (
         < div className='single-character' >
-            <p></p>
+            <h2>{character?.name}</h2>
+            <img src={character?.thumbnail.path + '.jpg'}></img>
+            <p>{character?.description}</p>
         </div >
     )
 
